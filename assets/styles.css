@@ -1,0 +1,35 @@
+body {
+    margin: 20px;
+    font-size: 12px;
+    // font-weight: bold;
+}
+
+#ampscz {
+    height: 120px;
+    width: 120px;
+    
+}
+
+input {
+    width: 90px;
+}
+
+#filter {
+    background: yellow;
+}
+
+#download {
+    background: lightgreen;
+    margin-right: 10px;
+    margin-left: 20px;
+}
+
+#table {
+    width: fit-content;
+}
+
+summary {
+    font-weight: bold;
+    color: blue;
+}
+
