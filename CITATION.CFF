@@ -1,0 +1,12 @@
+cff-version: 1.2.0
+message: "Please cite as below."
+authors:
+- family-names: "Billah"
+  given-names: "Tashrif"
+- family-names: "Bouix"
+  given-names: "Sylvain"
+title: "Plotly/Dash based web application for tracking missing data of AMP-SCZ project"
+version: 1.0
+doi: 10.5281/zenodo.6326487
+date-released: 2024-08-01
+url: "https://github.com/AMP-SCZ/missing-data-tracker/"
