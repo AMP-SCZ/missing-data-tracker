@@ -17,3 +17,14 @@ To access the web app at https://NAME.harvard.edu/missing , add this snippet to 
     }
 ```
 
+
+### ERIS to VM rsync
+
+```
+cd /data/predict1/data_from_nda/
+rsync -aR combined-AMPSCZ-data_*-day1to1.csv rc-predict-dev.partners.org:/data/predict1/data_from_nda/
+rsync -aR Pronet_status/combined-*csv rc-predict-dev.partners.org:/data/predict1/data_from_nda/
+rsync -aR Prescient_status/combined-*csv rc-predict-dev.partners.org:/data/predict1/data_from_nda/
+```
+
+
