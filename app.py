@@ -1,4 +1,4 @@
-!/usr/bin/env python
+#!/usr/bin/env python
 
 import base64, io
 import dash
@@ -40,6 +40,10 @@ with open('subject-id-gen/sites.json') as f:
 sites2=[]
 for s in sites:
     sites2.append({'label':s['id']+' | '+s['name'], 'value':s['id']})
+
+for n in 'PRONET PRESCIENT AMPSCZ'.split():
+    sites2.append({'label':n, 'value':n})
+
 sites=sites2.copy()
 
 
@@ -58,7 +62,7 @@ app.layout= html.Div(
 ### AMP-SCZ Missing Data Tracker
 Developed by Tashrif Billah and Sylvain Bouix
 
-https://github.com/AMP-SCZ/missing-data-tracker
+https://github.com/AMP-SCZ/missing-data-tracker &nbsp
 [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.13151571.svg)]
 (https://doi.org/10.5281/zenodo.13151571)
             """)),
@@ -121,18 +125,18 @@ https://github.com/AMP-SCZ/missing-data-tracker
             ),
 
             # days filter
-            dbc.Col(html.Div([dcc.Dropdown(id='days_low', className='ddown', placeholder='days_low',
-                options=score_options),
+            dbc.Col(html.Div([dcc.Input(id='days_low',placeholder='days_low'),
+                html.Br(),
                 'Days low'
                 ]),
-                width=2
+                width=1
             ),
 
-            dbc.Col(html.Div([dcc.Dropdown(id='days_high', className='ddown', placeholder='days_high',
-                options=score_options),
+            dbc.Col(html.Div([dcc.Input(id='days_high',placeholder='days_high'),
+                html.Br(),
                 'Days high'
                 ]),
-                width=2
+                width=1
             ),
         ]),
 
@@ -144,7 +148,7 @@ https://github.com/AMP-SCZ/missing-data-tracker
                 options=datatypes,
                 value=datatypes,
                 multi=True)),
-                width=8
+                width=4
             ),
 
             # visit filter
@@ -152,14 +156,9 @@ https://github.com/AMP-SCZ/missing-data-tracker
                 options=visits,
                 value=visits,
                 multi=True)),
-                width=8
+                width=4
             ),
 
-        ]),
-
-        html.Br(),
-
-        dbc.Row([
             # filter button
             dbc.Col(html.Button('Filter', id='filter', n_clicks=0))
 
@@ -185,7 +184,7 @@ https://github.com/AMP-SCZ/missing-data-tracker
         html.Br(),
         html.Br(),
 
-        dbc.Navbar([html.Button('Download', id='download', n_clicks=0),
+        dbc.Navbar([html.Button('Download', id='download', n_clicks=0)],
             fixed='bottom',
             color='white'
         )
