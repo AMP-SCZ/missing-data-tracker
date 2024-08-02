@@ -305,7 +305,7 @@ def download(table,site,visit,datatype,click):
     datestamp=datetime.now().strftime('%Y%m%d-%H%M')
     dtype='-'.join(datatype)
     
-    return dcc.send_data_frame(df.to_csv,f'{site}-{visit}-{dtype}-{datestamp}.csv')
+    return dcc.send_data_frame(df.to_csv,f'{site}-{visit}-{dtype}-{datestamp}.csv',index=False)
 
 
 if __name__=='__main__':
