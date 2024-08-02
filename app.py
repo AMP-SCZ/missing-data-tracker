@@ -184,7 +184,8 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
         html.Br(),
         html.Br(),
 
-        dbc.Navbar([html.Button('Download', id='download', n_clicks=0)],
+        dbc.Navbar([html.Button('Download', id='download', n_clicks=0),
+            dcc.Download(id='download-csv')],
             fixed='bottom',
             color='white'
         )
@@ -214,6 +215,7 @@ def verify_passwd(site,passwd):
             return True
 
 
+# render table
 @app.callback(Output('table','children'),
     [Input('site','value'),
     Input('visit','value'),
@@ -281,7 +283,31 @@ def filter(site,visit,_datatypes,passwd,click):
             'backgroundColor': 'rgb(230, 230, 230)',
             'fontWeight': 'bold'
         },
+
+        export_format='csv',
         )
+
+
+# download filtered data
+@app.callback(Output('download-csv','data'),
+    [Input('table','children'),
+    Input('site','value'),
+    Input('visit','value'),
+    Input('datatype','value'),
+    Input('download','n_clicks')],
+    prevent_initial_call=True)
+def download(table,site,visit,datatype,click):
+
+    if not click:
+        raise PreventUpdate
+
+    filtered=table['props']['derived_virtual_data']
+    df=pd.DataFrame.from_dict(filtered)
+
+    datestamp=datetime.now().strftime('%Y%m%d-%H%M')
+    dtype='-'.join(datatype)
+    
+    return dcc.send_data_frame(df.to_csv,f'{site}-{visit}-{dtype}-{datestamp}.csv')
 
 
 if __name__=='__main__':
