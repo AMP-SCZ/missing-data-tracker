@@ -148,15 +148,14 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
                 options=datatypes,
                 value=datatypes,
                 multi=True)),
-                width=4
+                width=2
             ),
 
             # visit filter
             dbc.Col(html.Div(dcc.Dropdown(id='visit', className='ddown',
                 options=visits,
-                value=visits,
-                multi=True)),
-                width=4
+                value=visits)),
+                width=2
             ),
 
             # filter button
@@ -212,6 +211,10 @@ def verify_passwd(site,passwd):
         else:
             # return f'Invalid password for site {site}, try again'
             return True
+
+
+
+
 
 if __name__=='__main__':
     # debug=None allows control via DASH_DEBUG variable
