@@ -6,6 +6,7 @@ from dash import dcc, html, dash_table, Dash, callback_context, MATCH, ALL
 from dash.dependencies import Input, Output
 from dash.exceptions import PreventUpdate
 import dash_bootstrap_components as dbc
+from dash.dash_table import DataTable
 
 from os.path import isfile, isdir, abspath, join as pjoin, dirname, splitext, basename
 from os import makedirs, getenv, remove, listdir
@@ -213,7 +214,74 @@ def verify_passwd(site,passwd):
             return True
 
 
+@app.callback(Output('table','children'),
+    [Input('site','value'),
+    Input('visit','value'),
+    Input('datatype','value'),
+    Input('passwd','value'),
+    Input('filter','n_clicks')])
+def filter(site,visit,_datatypes,passwd,click):
 
+    changed = [p['prop_id'] for p in callback_context.triggered][0]
+    if not ('filter' in changed and site and visit):
+        raise PreventUpdate
+
+
+    # verify password
+    if passwd==_passwd.loc['dpacc','passwd']:
+        pass
+    elif passwd==_passwd.loc[site,'passwd']:
+        pass
+    else:
+        raise PreventUpdate
+
+
+    # select file to load
+    file=f'combined-{site}-data_{visit}-day1to1.csv'
+    if site=='AMPSCZ':
+        path=f'{ROOTDIR}/{file}'
+    else:
+        path=f'{ROOTDIR}/Pronet_status/{file}'
+        
+        if not isfile(path):
+            path=f'{ROOTDIR}/Prescient_status/{file}'
+
+    _df=pd.read_csv(path,dtype=str)
+    
+    # filter columns for datatype
+    # MRI, EEG, AVL, CNB
+    columns=['subject_id']
+    for d in _datatypes:
+        for c in _df.columns:
+            if d in c:
+                columns.append(c)
+        
+    df=_df[columns]
+    
+
+    # render selected columns/rows
+    return DataTable(
+        id='dataframe',
+        columns=[{'name': f'{i}',
+                  'id': i,
+                  'hideable': True,
+                  'type': 'text',
+                  } for i in columns],
+        data=df.to_dict('records'),
+        filter_action='native',
+        sort_action='native',
+        page_size=df.shape[0],
+        style_cell={
+            'textAlign': 'left',
+            'whiteSpace': 'pre-wrap',
+            'width': '20px'
+        },
+
+        style_header={
+            'backgroundColor': 'rgb(230, 230, 230)',
+            'fontWeight': 'bold'
+        },
+        )
 
 
 if __name__=='__main__':
