@@ -283,8 +283,6 @@ def filter(site,visit,_datatypes,passwd,click):
             'backgroundColor': 'rgb(230, 230, 230)',
             'fontWeight': 'bold'
         },
-
-        export_format='csv',
         )
 
 
