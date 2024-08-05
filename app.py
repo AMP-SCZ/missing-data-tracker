@@ -307,6 +307,25 @@ def filter(site,visit,_datatypes,passwd,click):
             'backgroundColor': 'rgb(230, 230, 230)',
             'fontWeight': 'bold'
         },
+
+        style_data_conditional=[
+            {
+                'if': {
+                    'column_id': 'mri_missing',
+                    'filter_query': f'{{mri_missing}} > ""',
+                },
+                'backgroundColor': 'red',
+                'color': 'black',
+            },
+            {
+                'if': {
+                    'column_id': 'mri_data',
+                    'filter_query': f'{{mri_data}} < 0',
+                },
+                'backgroundColor': 'red',
+                'color': 'black',
+            },
+        ],
         )
 
 
