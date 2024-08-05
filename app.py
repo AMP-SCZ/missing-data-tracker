@@ -52,6 +52,30 @@ visits='baseline,month_2,month_6,month_12,month_24'.split(',')
 datatypes='mri,eeg,avl,cnb'.split(',')
 
 
+column_type={
+'subject_id':'text',
+'mri_score':'numeric',
+'mri_data':'numeric',
+'mri_protocol':'numeric',
+'mri_date':'datetime',
+'mri_missing':'text',
+'eeg_score':'numeric',
+'eeg_data':'numeric',
+'eeg_protocol':'numeric',
+'eeg_date':'datetime',
+'eeg_missing':'text',
+'avl_score':'numeric',
+'avl_data':'numeric',
+'avl_protocol':'numeric',
+'avl_date':'datetime',
+'avl_missing':'text',
+'cnb_score':'numeric',
+'cnb_data':'numeric',
+'cnb_protocol':'numeric',
+'cnb_date':'datetime',
+'cnb_missing':'text'
+}
+
 app.layout= html.Div(
     children= [
         html.Details([html.Summary('Collapse/Expand Introduction'),
@@ -267,7 +291,7 @@ def filter(site,visit,_datatypes,passwd,click):
         columns=[{'name': f'{i}',
                   'id': i,
                   'hideable': True,
-                  'type': 'text',
+                  'type': column_type[i],
                   } for i in columns],
         data=df.to_dict('records'),
         filter_action='native',
