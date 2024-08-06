@@ -272,7 +272,7 @@ def filter(site,visit,_datatypes,passwd,click):
         if not isfile(path):
             path=f'{ROOTDIR}/Prescient_status/{file}'
 
-    _df=pd.read_csv(path,dtype=str)
+    _df=pd.read_csv(path)
     
     # filter columns for datatype
     # MRI, EEG, AVL, CNB
@@ -311,20 +311,37 @@ def filter(site,visit,_datatypes,passwd,click):
         style_data_conditional=[
             {
                 'if': {
-                    'column_id': 'mri_missing',
-                    'filter_query': f'{{mri_missing}} > ""',
+                    'column_id': 'mri_score',
+                    'filter_query': '{mri_score} < 0',
                 },
-                'backgroundColor': 'red',
+                'backgroundColor': '#f7fcb9',
                 'color': 'black',
             },
             {
                 'if': {
                     'column_id': 'mri_data',
-                    'filter_query': f'{{mri_data}} < 0',
+                    'filter_query': '{mri_data} < 0',
                 },
-                'backgroundColor': 'red',
+                'backgroundColor': '#f7fcb9',
                 'color': 'black',
             },
+            {
+                'if': {
+                    'column_id': 'mri_protocol',
+                    'filter_query': '{mri_protocol} = 0',
+                },
+                'backgroundColor': '#ff474c',
+                'color': 'black',
+            },
+            {
+                'if': {
+                    'column_id': 'mri_missing',
+                    'filter_query': '{mri_missing} > ""',
+                },
+                'backgroundColor': '#ff474c',
+                'color': 'black',
+            },
+
         ],
         )
 
