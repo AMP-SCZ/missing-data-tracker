@@ -181,7 +181,7 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
             # visit filter
             dbc.Col(html.Div(dcc.Dropdown(id='visit', className='ddown',
                 options=visits,
-                value=visits)),
+                value='baseline')),
                 width=2
             ),
 
