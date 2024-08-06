@@ -33,3 +33,9 @@ summary {
     color: blue;
 }
 
+.previous-next-container {
+    position: absolute;
+    margin-top: 20px;
+    left: 30%;
+    font-weight: bold;
+}
