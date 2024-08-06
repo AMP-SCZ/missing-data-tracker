@@ -140,17 +140,8 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
                 width=1
             ),
 
-            # row order
-            dbc.Col(html.Div([dcc.Dropdown(id='sort-order', className='ddown',
-                options=['Latest first','Earliest first','Alphabetical'],
-                value='Latest first'),
-                'Sort order'
-                ]),
-                width=2
-            ),
-
             # days filter
-            dbc.Col(html.Div([dcc.Input(id='days_low',placeholder='days_low'),
+            dbc.Col(html.Div([dcc.Input(id='days_low',placeholder='-1000'),
                 html.Br(),
                 'Days low'
                 ]),
@@ -159,7 +150,7 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
 
             dbc.Col('←—→', style={'margin-top':'10px'}, width='auto'),
             
-            dbc.Col(html.Div([dcc.Input(id='days_high',placeholder='days_high'),
+            dbc.Col(html.Div([dcc.Input(id='days_high',placeholder='1000'),
                 html.Br(),
                 'Days high'
                 ]),
