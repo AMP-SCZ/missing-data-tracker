@@ -154,14 +154,16 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
                 html.Br(),
                 'Days low'
                 ]),
-                width=1
+                width='auto'
             ),
 
+            dbc.Col('←—→', style={'margin-top':'10px'}, width='auto'),
+            
             dbc.Col(html.Div([dcc.Input(id='days_high',placeholder='days_high'),
                 html.Br(),
                 'Days high'
                 ]),
-                width=1
+                width='auto'
             ),
         ]),
 
