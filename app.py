@@ -30,7 +30,7 @@ if not ROOTDIR:
     exit(1)
 
 external_stylesheets = ['https://codepen.io/chriddyp/pen/bWLwgP.css',dbc.themes.BOOTSTRAP,'styles.css']
-app = Dash(__name__, external_stylesheets=external_stylesheets, suppress_callback_exceptions=True, title='Missing Data Tracker', \
+app = Dash(__name__, external_stylesheets=external_stylesheets, suppress_callback_exceptions=True, title='Missing-Data Tracker', \
     assets_folder=ROOTDIR, assets_url_path="/",server=server)
 log= logging.getLogger('werkzeug')
 log.setLevel(logging.ERROR)
@@ -84,7 +84,7 @@ app.layout= html.Div(
             dbc.Col(html.Img(src='https://avatars.githubusercontent.com/u/75388309?s=400&u=0d32212fdb2b3bf3854ed6624ce9f011ca6de29c&v=4', id='ampscz'),width=2),
             dbc.Col([
                 dbc.Row(dcc.Markdown("""
-### AMP-SCZ Missing Data Tracker
+### AMP SCZ Missing-Data Tracker
 Developed by Tashrif Billah and Sylvain Bouix
 
 https://github.com/AMP-SCZ/missing-data-tracker &nbsp
