@@ -94,8 +94,9 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
                 dbc.Row([
                     dbc.Col(dcc.Markdown("""
 * Provide value in the box(es) and click `FILTER`
-* Click `DOWNLOAD` to download shown table
-* Enter date as `yyyy/mm/dd`
+* Click `DOWNLOAD` to download shown in table
+* Enter filter queries under each column header:
+* `=<0`, `=1`, `>2024-01-01`, `>5`, etc.
                 """),width='auto'),
                     dbc.Col(dcc.Markdown("""
 * Example of `site`: LA, PA, ME
