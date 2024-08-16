@@ -109,25 +109,9 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
         html.Br(),
 
         dbc.Row([
-            # date filter
-            # show one month of images as default
-            dbc.Col([
-                dcc.Input(id='start',placeholder='yyyy/mm/dd',debounce=True),
-                html.Br(),
-                'Earliest'
-            ], width='auto'),
-
-            dbc.Col('←—→', style={'margin-top':'10px'}, width='auto'),
-
-            dbc.Col([
-                dcc.Input(id='end',placeholder='yyyy/mm/dd',debounce=True),
-                html.Br(),
-                'Latest'
-            ], width='auto'),
-
 
             # site filter
-            dbc.Col(html.Div(dcc.Dropdown(id='site',placeholder='site',
+            dbc.Col(html.Div(dcc.Dropdown(id='site',placeholder='site',className='ddown',
                 options=sites,
                 value='')),
                 width=2
@@ -140,27 +124,11 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
                 width=1
             ),
 
-            # days filter
-            dbc.Col(html.Div([dcc.Input(id='days_low',placeholder='-1000'),
-                html.Br(),
-                'Days low'
-                ]),
-                width='auto'
-            ),
+        #]),
 
-            dbc.Col('←—→', style={'margin-top':'10px'}, width='auto'),
-            
-            dbc.Col(html.Div([dcc.Input(id='days_high',placeholder='1000'),
-                html.Br(),
-                'Days high'
-                ]),
-                width='auto'
-            ),
-        ]),
+        #html.Br(),
 
-        html.Br(),
-
-        dbc.Row([
+        #dbc.Row([
             # datatype filter
             dbc.Col(html.Div(dcc.Dropdown(id='datatype', className='ddown',
                 options=datatypes,
@@ -173,7 +141,7 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
             dbc.Col(html.Div(dcc.Dropdown(id='visit', className='ddown',
                 options=visits,
                 value='baseline')),
-                width=2
+                width=1
             ),
 
             # filter button
