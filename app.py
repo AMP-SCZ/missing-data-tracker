@@ -318,7 +318,8 @@ def filter(site,visit,_datatypes,passwd,click):
     prevent_initial_call=True)
 def download(table,site,visit,datatype,click):
 
-    if not click:
+    changed = [p['prop_id'] for p in callback_context.triggered][0]
+    if not 'download' in changed:
         raise PreventUpdate
 
     filtered=table['props']['derived_virtual_data']
