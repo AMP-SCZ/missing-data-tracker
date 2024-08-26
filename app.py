@@ -234,7 +234,10 @@ def filter(site,visit,_datatypes,passwd,click):
         if not isfile(path):
             path=f'{ROOTDIR}/Prescient_status/{file}'
 
-    _df=pd.read_csv(path)
+    try:
+        _df=pd.read_csv(path)
+    except FileNotFoundError:
+        return DataTable()
     
     # filter columns for datatype
     # MRI, EEG, AVL, CNB
