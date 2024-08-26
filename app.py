@@ -228,7 +228,7 @@ def filter(site,visit,_datatypes,passwd,click):
     try:
         _df=pd.read_csv(path)
     except FileNotFoundError:
-        return DataTable()
+        return html.H4(f'FileNotFoundError : {file}', style={'color':'red'})
     
     # filter columns for datatype
     # MRI, EEG, AVL, CNB
