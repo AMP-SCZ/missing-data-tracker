@@ -305,7 +305,7 @@ def filter(site,visit,_datatypes,passwd,click):
             },
 
         ],
-        )
+    )
 
 
 # download filtered data
