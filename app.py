@@ -148,12 +148,8 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
         dbc.Row(dcc.ConfirmDialog(id='verify', message='Invalid password for the site, try again')),
 
         html.Br(),
-        dcc.Loading(html.Div(id='loading'),type='cube'),
+        # dcc.Loading(html.Div(id='loading'),type='cube'),
         html.Br(),
-
-
-        # html.Br(),
-        # html.Br(),
 
         html.Div(id='table'),
         html.Br(),
