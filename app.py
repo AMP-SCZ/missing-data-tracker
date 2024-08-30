@@ -244,7 +244,7 @@ def filter(site,visit,_datatypes,passwd,click):
     # render selected columns/rows
     return DataTable(
         id='dataframe',
-        columns=[{'name': f'{i}',
+        columns=[{'name': i,
                   'id': i,
                   'hideable': True,
                   'type': column_type[i],
