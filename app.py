@@ -53,6 +53,7 @@ datatypes='mri,eeg,avl,cnb'.split(',')
 
 
 column_type={
+'Index':'text',
 'subject_id':'text',
 'mri_score':'numeric',
 'mri_data':'numeric',
@@ -230,16 +231,17 @@ def filter(site,visit,_datatypes,passwd,click):
     except FileNotFoundError:
         return html.H4(f'FileNotFoundError : {file}', style={'color':'red'})
     
+    _df.rename(columns={'day':'Index'}, inplace=True)
+
     # filter columns for datatype
     # MRI, EEG, AVL, CNB
-    columns=['subject_id']
+    columns=['Index','subject_id']
     for d in _datatypes:
         for c in _df.columns:
             if d in c:
                 columns.append(c)
         
     df=_df[columns]
-    
 
     # render selected columns/rows
     return DataTable(
