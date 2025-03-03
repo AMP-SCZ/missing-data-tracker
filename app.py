@@ -48,8 +48,8 @@ for n in 'PRONET PRESCIENT AMPSCZ'.split():
 sites=sites2.copy()
 
 
-visits='baseline,month_2,month_6,month_12,month_24'.split(',')
-datatypes='mri,eeg,avl,cnb'.split(',')
+visits='baseline,month_1,month_2,month_6,month_12,month_24'.split(',')
+datatypes='mri,eeg,avl,act,sen,cnb'.split(',')
 
 
 column_type={
@@ -70,6 +70,16 @@ column_type={
 'avl_protocol':'numeric',
 'avl_date':'datetime',
 'avl_missing':'text',
+'act_score':'numeric',
+'act_data':'numeric',
+'act_protocol':'numeric',
+'act_date':'datetime',
+'act_missing':'text',
+'sen_score':'numeric',
+'sen_data':'numeric',
+'sen_protocol':'numeric',
+'sen_date':'datetime',
+'sen_missing':'text',
 'cnb_score':'numeric',
 'cnb_data':'numeric',
 'cnb_protocol':'numeric',
@@ -97,7 +107,7 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
 * Provide value in the box(es) and click `FILTER`
 * Click `DOWNLOAD` to download shown in table
 * Enter filter queries under each column header:
-* `=<0`, `=1`, `>2024-01-01`, `>5`, etc.
+* `=<0`, `=1`, `>2024-01-01`, `>5`, `is blank`, etc.
                 """),width='auto'),
                     dbc.Col(dcc.Markdown("""
 * Example of `site`: LA, PA, ME
@@ -138,7 +148,7 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
             dbc.Col(html.Div(dcc.Dropdown(id='visit', className='ddown',
                 options=visits,
                 value='baseline')),
-                width=1
+                width=2
             ),
 
             # filter button
