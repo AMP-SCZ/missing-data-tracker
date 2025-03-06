@@ -49,7 +49,7 @@ sites=sites2.copy()
 
 
 visits='baseline,month_1,month_2,month_6,month_12,month_24'.split(',')
-datatypes='mri,eeg,avl,act,sen,cnb'.split(',')
+datatypes='mri,eeg,avl,act,sen,ema,cnb'.split(',')
 
 
 column_type={
@@ -80,6 +80,11 @@ column_type={
 'sen_protocol':'numeric',
 'sen_date':'datetime',
 'sen_missing':'text',
+'ema_score':'numeric',
+'ema_data':'numeric',
+'ema_protocol':'numeric',
+'ema_date':'datetime',
+'ema_missing':'text',
 'cnb_score':'numeric',
 'cnb_data':'numeric',
 'cnb_protocol':'numeric',
