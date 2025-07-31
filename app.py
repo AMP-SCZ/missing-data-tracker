@@ -112,7 +112,7 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
 * Provide value in the box(es) and click `FILTER`
 * Click `DOWNLOAD` to download shown in table
 * Enter filter queries under each column header:
-* `=<0`, `=1`, `>2024-01-01`, `>5`, `is blank`, `>''`, etc.
+* `<=0`, `>=0`, `=1`, `>2024-01-01`, `>5`, `is blank`, `>''`, etc.
                 """),width='auto'),
                     dbc.Col(dcc.Markdown("""
 * Example of `site`: LA, PA, ME
