@@ -281,41 +281,6 @@ def filter(site,visit,_datatypes,passwd,click):
             'fontWeight': 'bold'
         },
 
-        style_data_conditional=[
-            {
-                'if': {
-                    'column_id': 'mri_score',
-                    'filter_query': '{mri_score} < 0',
-                },
-                'backgroundColor': '#f7fcb9',
-                'color': 'black',
-            },
-            {
-                'if': {
-                    'column_id': 'mri_data',
-                    'filter_query': '{mri_data} < 0',
-                },
-                'backgroundColor': '#f7fcb9',
-                'color': 'black',
-            },
-            {
-                'if': {
-                    'column_id': 'mri_protocol',
-                    'filter_query': '{mri_protocol} = 0',
-                },
-                'backgroundColor': '#ff474c',
-                'color': 'black',
-            },
-            {
-                'if': {
-                    'column_id': 'mri_missing',
-                    'filter_query': '{mri_missing} > ""',
-                },
-                'backgroundColor': '#ff474c',
-                'color': 'black',
-            },
-
-        ],
     )
 
 
