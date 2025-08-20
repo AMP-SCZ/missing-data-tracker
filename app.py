@@ -269,6 +269,8 @@ def filter(site,visit,_datatypes,passwd,click):
         data=df.to_dict('records'),
         filter_action='native',
         sort_action='native',
+        row_selectable='multi',
+        selected_rows=[],
         page_size=50,
         style_cell={
             'textAlign': 'left',
