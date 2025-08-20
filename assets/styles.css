@@ -14,6 +14,10 @@ input {
     width: 90px;
 }
 
+input[type='checkbox'] {
+    width: 20px;
+}
+
 #filter {
     background: yellow;
 }
