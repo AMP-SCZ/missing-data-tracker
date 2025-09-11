@@ -144,8 +144,7 @@ https://github.com/AMP-SCZ/missing-data-tracker &nbsp
             # datatype filter
             dbc.Col(html.Div(dcc.Dropdown(id='datatype', className='ddown',
                 options=datatypes,
-                value=datatypes,
-                multi=True)),
+                value=datatypes)),
                 width=2
             ),
 
